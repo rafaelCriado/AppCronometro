@@ -7,7 +7,7 @@ export default class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = { n: 0, 'botao': 'INICIAR'};
+    this.state = { n: 0, 'botao': 'INICIAR', 'parcial': '0.0'};
     this.tempo = null;
   }
 
@@ -36,8 +36,16 @@ export default class App extends Component {
 
     this.setState({
       n:0,
-      botao: 'INICIAR'
+      botao: 'INICIAR',
+      parcial: '0.0'
     });
+  }
+
+
+  parcial = () =>{
+    this.setState({
+      'parcial': this.state.n.toFixed(1)
+    })
   }
 
   render() {
@@ -49,6 +57,11 @@ export default class App extends Component {
         <View style={styles.areaBotao}>
           <Botao texto={this.state.botao} onPress={this.iniciarCronometro}></Botao>
           <Botao texto="LIMPAR" onPress={this.limparCronometro}></Botao>
+          <Botao texto="PARCIAL" onPress={this.parcial} ></Botao>
+        </View>
+
+        <View style={styles.areaParcial}>
+          <Text style={styles.parcial}>Parcial: {this.state.parcial}</Text>
         </View>
       </View>
     );

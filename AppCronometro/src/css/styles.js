@@ -22,6 +22,15 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       height:60,
       marginTop:100
+    },
+    areaParcial:{
+        marginTop:80,
+        textAlign:"center"
+    },
+    parcial:{
+        color: '#FFF',
+        fontSize:30,
+        fontWeight:'bold'
     }
 });
 
